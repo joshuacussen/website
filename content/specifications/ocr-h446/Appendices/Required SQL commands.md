@@ -1,0 +1,13 @@
+- `SELECT` (including nested)
+- `FROM`
+- `WHERE`
+- `LIKE`
+- `AND`
+- `OR`
+- `DELETE`
+- `INSERT`
+- `DROP`
+- `JOIN` (`INNER JOIN`, no need for outer, left, or right joins)
+- Wildcards:
+	- `%`
+	- `*`
