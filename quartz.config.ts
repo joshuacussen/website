@@ -8,24 +8,22 @@ import * as Plugin from "./quartz/plugins"
  */
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "Quartz 4",
+    pageTitle: "Cussen CS",
     pageTitleSuffix: "",
     enableSPA: true,
     enablePopovers: true,
-    analytics: {
-      provider: "plausible",
-    },
-    locale: "en-US",
-    baseUrl: "quartz.jzhao.xyz",
+    analytics: null,
+    locale: "en-GB",
+    baseUrl: "cussen-cs.com",
     ignorePatterns: ["private", "templates", ".obsidian"],
     defaultDateType: "modified",
     theme: {
       fontOrigin: "googleFonts",
       cdnCaching: true,
       typography: {
-        header: "Schibsted Grotesk",
+        header: "Source Sans Pro",
         body: "Source Sans Pro",
-        code: "IBM Plex Mono",
+        code: "Source Code Pro",
       },
       colors: {
         lightMode: {
