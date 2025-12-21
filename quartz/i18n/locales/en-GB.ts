@@ -33,16 +33,16 @@ export default {
       title: "Reader mode",
     },
     explorer: {
-      title: "Explorer",
+      title: "Contents",
     },
     footer: {
       createdWith: "Created with",
     },
     graph: {
-      title: "Graph View",
+      title: "Graph view",
     },
     recentNotes: {
-      title: "Recent Notes",
+      title: "Recent notes",
       seeRemainingMore: ({ remaining }) => `See ${remaining} more →`,
     },
     transcludes: {
@@ -54,7 +54,7 @@ export default {
       searchBarPlaceholder: "Search for something",
     },
     tableOfContents: {
-      title: "Table of Contents",
+      title: "Page contents",
     },
     contentMeta: {
       readingTime: ({ minutes }) => `${minutes} min read`,
@@ -66,14 +66,14 @@ export default {
       lastFewNotes: ({ count }) => `Last ${count} notes`,
     },
     error: {
-      title: "Not Found",
-      notFound: "Either this page is private or doesn't exist.",
-      home: "Return to Homepage",
+      title: "Not found",
+      notFound: "This page is either private or doesn't exist.",
+      home: "Return to homepage",
     },
     folderContent: {
       folder: "Folder",
       itemsUnderFolder: ({ count }) =>
-        count === 1 ? "1 item under this folder." : `${count} items under this folder.`,
+        count === 1 ? "1 item in this folder." : `${count} items in this folder.`,
     },
     tagContent: {
       tag: "Tag",

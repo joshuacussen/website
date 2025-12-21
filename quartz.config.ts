@@ -8,7 +8,7 @@ import * as Plugin from "./quartz/plugins"
  */
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "Cussen CS",
+    pageTitle: "[Cussen CS]",
     pageTitleSuffix: "",
     enableSPA: true,
     enablePopovers: true,
@@ -21,6 +21,7 @@ const config: QuartzConfig = {
       fontOrigin: "googleFonts",
       cdnCaching: true,
       typography: {
+        title: "Source Code Pro",
         header: "Source Sans Pro",
         body: "Source Sans Pro",
         code: "Source Code Pro",
