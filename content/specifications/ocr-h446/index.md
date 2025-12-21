@@ -1,5 +1,7 @@
 ---
 title: OCR A Level Computer Science (H446)
+aliases:
+- OCR H446
 ---
 - [Specification PDF](https://www.ocr.org.uk/Images/170844-specification-accredited-a-level-gce-computer-science-h446.pdf)
 - [Content clarification PDF](https://www.ocr.org.uk/Images/383613-subject-content-clarification-guide.pdf)

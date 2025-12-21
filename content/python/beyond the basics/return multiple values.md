@@ -16,7 +16,7 @@ By ‘returning multiple values’ and using Python’s convenient syntax, you g
 ## Examples
 ### Return an explicit tuple
 We could similarly return a [[list]] or [[dictionary]].
-```python
+```python {4}
 def division(dividend, divisor):
     quotient = dividend // divisor
     remainder = dividend % divisor
@@ -28,7 +28,7 @@ q, r = division(19, 2)  # q = 9, r = 1
 
 ### Return an implicit tuple
 Python does not require parentheses around the grouped values being returned, it groups them in a tuple automatically.
-```python
+```python {4}
 def division(dividend, divisor):
     quotient = dividend // divisor
     remainder = dividend % divisor

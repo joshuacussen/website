@@ -1,5 +1,7 @@
 ---
 title: OCR GCSE Computer Science (J277)
+aliases:
+- OCR J277
 ---
 - [Specification PDF](https://www.ocr.org.uk/Images/558027-specification-gcse-computer-science-j277.pdf)
 

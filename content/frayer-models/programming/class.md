@@ -5,7 +5,7 @@ aliases:
   - blueprint
 ---
 ## Definition
-A reusable template to organise data ([[attribute|attributes]]) and behaviour ([[method|methods]]).
+A reusable template/blueprint to organise data ([[attribute|attributes]]) and behaviour ([[method|methods]]).
 
 ## Characteristics
 - Used in [[object-oriented programming]]
@@ -14,25 +14,40 @@ A reusable template to organise data ([[attribute|attributes]]) and behaviour ([
 - Composed of attributes and methods
 
 ## Examples
+### Simple class
+A simple class with a constructor, attribute, and method.
 ```python
-class Person():
-  # constructor
-  def __init__(self, p_name):
-    self.name = p_name # assign the name attribute the value of p_name
+class Person:
+    def __init__(self, p_name):
+        self.name = p_name
 
-  # method
-  def introduce(self):
-    print(f"My name is {self.name}")
+    def introduce(self):
+        print(f"My name is {self.name}")
 ```
 
+### Class with inheritance
+Student [[inheritance|inherits]] from Person.
+```python
+class Student(Person):
+    def __init__(self, p_name, p_id):
+        super().__init__(p_name)
+        self.student_id = p_id
+```
 ## Non-examples
-- Attributes: classes *have* attributes
-- Methods: classes *have* methods
-- Objects: instances created from a class, e.g.,
+
+### Object
+[[object|Objects]] are instances of a class created using the class as a template.
 ```python
-person_1 = Person("Alice") # an instance of the Person class
-person_2 = Person("Sam") # another instance of the Person class
+person_1 = Person("Alice")
+person_2 = Person("Sam")
 ```
+
+### Attribute
+Classes have [[attribute|attributes]].
+
+### Method
+Classes have [[method|methods]]
+
 ## Specification links
 
 ### OCR H446

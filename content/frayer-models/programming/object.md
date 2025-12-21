@@ -5,6 +5,7 @@ aliases:
 A unit of [[encapsulation|encapsulated]] data ([[attribute|attributes]]) and behaviour ([[method|methods]]). An object is the 'thing' that exists in [[random-access memory|memory]] with attributes and can execute its [[class|class's]] methods.
 
 ## Characteristics
+- Used in [[object-oriented programming]]
 - Has its own values for its class's attributes
 - Can call methods defined in its class
 - Is created using the [[constructor]] of its class

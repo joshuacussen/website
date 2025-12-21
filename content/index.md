@@ -10,7 +10,9 @@ I currently teach:
 
 This site is a kitchen-sink [digital garden](https://maggieappleton.com/garden-history) for my projects, teaching resources, and (occasional) [[writing/index|writing]]. 
 
-I'm building a [[frayer-models/index|dictionary of Frayer Models]] for GCSE and A Level Computing concepts which you can explore. Some links don't go anywhere yet—they're placeholders for pages I need to make.
+[[Orange text]] indicates pages I plan to write; they will turn into working links (blue) once the page is published.
+
+I'm building a [[frayer-models/index|dictionary of Frayer Models]] for GCSE and A Level Computing concepts which you can explore.
 
 ## Other tools and projects
 - [examTimer](https://joshuacussen.github.io/examTimer/): a handy timer for use in exams and in-class assessments

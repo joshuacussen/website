@@ -5,18 +5,15 @@ import HeaderConstructor from "../../components/Header"
 import BodyConstructor from "../../components/Body"
 import { pageResources, renderPage } from "../../components/renderPage"
 import { FullPageLayout } from "../../cfg"
-import { pathToRoot, resolveRelative } from "../../util/path"
+import { pathToRoot } from "../../util/path"
 import { defaultContentPageLayout, sharedPageComponents } from "../../../quartz.layout"
 import { Content } from "../../components"
 import { styleText } from "util"
 import { write } from "./helpers"
 import { BuildCtx } from "../../util/ctx"
 import { Node } from "unist"
-import { Root } from "hast"
 import { StaticResources } from "../../util/resources"
 import { QuartzPluginData } from "../vfile"
-import { visit } from "unist-util-visit"
-import { RelativeURL } from "../../util/path"
 
 async function processContent(
   ctx: BuildCtx,
@@ -28,38 +25,6 @@ async function processContent(
 ) {
   const slug = fileData.slug!
   const cfg = ctx.cfg.configuration
-
-  const allSlugs = allFiles.map((f) => (f.slug ? resolveRelative(slug, f.slug) : ""))
-
-  visit(tree as Root, "element", (elem) => {
-    if (elem.tagName === "a" && elem.properties.href) {
-      const href = elem.properties.href.toString()
-
-      if (href.startsWith("#")) {
-        return
-      }
-
-      if (!allSlugs.includes(href as RelativeURL)) {
-        if (elem.properties.className === undefined) {
-          elem.properties.className = "dead-link"
-        } else if (Array.isArray(elem.properties.className)) {
-          if (elem.properties.className.includes("external")) {
-            return
-          }
-          elem.properties.className.push("dead-link")
-        } else if (typeof elem.properties.className === "string") {
-          if (elem.properties.className.includes("external")) {
-            return
-          }
-          elem.properties.className += " dead-link"
-        } else {
-          return
-        }
-        elem.tagName = "span"
-      }
-    }
-  })
-
   const externalResources = pageResources(pathToRoot(slug), resources)
   const componentData: QuartzComponentProps = {
     ctx,

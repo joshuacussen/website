@@ -6,6 +6,7 @@ aliases:
 A [[method]] that returns the value of an [[object|object's]] [[attribute]].
 
 ## Characteristics
+- Used in [[object-oriented programming]]
 - Provides read-only access to an attribute without exposing the attribute directly
 - Usually named with the `get_` prefix, e.g. `get_name()`
 - Supports [[encapsulation]] by providing controlled access to hidden data

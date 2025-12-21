@@ -8,6 +8,7 @@ aliases:
 To create an [[object]] from a [[class]].
 
 ## Characteristics
+- Used in [[object-oriented programming]]
 - Creates a new object in [[random-access memory|memory]] using a class as a template
 - Calls the class [[constructor]] to set the object's initial state
 

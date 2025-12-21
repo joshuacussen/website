@@ -16,7 +16,7 @@ As providing a default value for a parameter makes the parameter optional in sub
 
 ### Simple value
 The default value represents the most common use of the subprogram.
-```python
+```python /greeting="Hello"/
 def greet(name, greeting="Hello"):
     print(f"{greeting}, {name}!")
 
@@ -27,7 +27,7 @@ greet("Bob", "Hi there")  # "Hi there, Bob!"
 ### Boolean flag
 The default value controls optional behaviour rather than storing required data; such [[Boolean data type|Boolean]] parameters are often called flags.
 
-```python
+```python /uppercase=False/
 def format_name(first, last, uppercase=False):
     name = f"{first} {last}"
     if uppercase:
@@ -38,10 +38,10 @@ name = format_name("Ada", "Lovelace")  # Ada Lovelace
 upper_name = format_name("Ada", "Lovelace", uppercase=True)  # ADA LOVELACE
 ```
 
-## Constructor
+### Constructor
 The default value in the [[constructor]] signature sets the initial state of the object when no explicit value is provided.
 
-```python
+```python /balance=0/
 class BankAccount:
     def __init__(self, account_holder, balance=0):
         self.account_holder = account_holder
@@ -60,12 +60,12 @@ Default parameters are only useful when sensible default values exist. There is 
 
 Including default parameters suggests the normal behaviour of your subprograms so default parameters should be chosen intentionally.
 
-## Ordering parameters
+### Ordering parameters
 You cannot place required (positional) parameters after parameters with default values. For this reason, all default parameters must appear at the end of a subprogram’s signature.
 
 Although default parameters can be passed positionally, it is generally clearer to use [[keyword arguments]], especially when a subprogram has multiple default parameters.
 
-The following example shows multiple default parameters being passed both positionally and using keyword arguments. Using keyword arguments makes it possible to ignore parameters whose default values you want to keep, and makes code more readable.
+The following example shows multiple default parameters being passed both positionally and using keyword arguments. Using keyword arguments makes it possible to ignore parameters whose default values you want to keep and makes your code more readable.
 ```python
 def greet(name, greeting="Hello", uppercase=False):
     greeting = f"{greeting}, {name}!"

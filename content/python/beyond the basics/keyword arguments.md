@@ -14,7 +14,7 @@ The flexibility of ordering enabled by keyword arguments is extremely helpful wh
 ## Examples
 ### Ordering parameters
 If you use keyword arguments for all the arguments in the subprogram call, the order does not matter at all.
-```python
+```python {5-6}
 def create_username(forename, surname, year):
     username = f"{forename[0]}{surname}{year[2:]}"
     return username
@@ -25,7 +25,7 @@ user2 = create_username(year="2023", forename="Quintin", surname="Bacon")  # QBa
 
 ### Default parameters
 Keyword arguments are useful and improve readability when using [[default parameters|default parameters]].
-```python
+```python {5}
 def create_username(forename, surname, year="2025"):
     username = f"{forename[0]}{surname}{year[2:]}"
     return username

@@ -6,6 +6,7 @@ aliases:
 A [[method]] that changes the value of an [[object|object's]] [[attribute]].
 
 ## Characteristics
+- Used in [[object-oriented programming]]
 - Provides controlled write access to an attribute without exposing the attribute directly
 - Usually named with the `set_` prefix, e.g. `set_name()`
 - Supports [[encapsulation]] by controlling how [[data hiding|hidden data]] is modified

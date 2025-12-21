@@ -6,6 +6,7 @@ aliases:
 A [[subprogram]] defined within a [[class]] that implements part of the class's behaviour.
 
 ## Characteristics
+- Used in [[object-oriented programming]]
 - Can access and modify [[private]] [[attribute|attributes]] defined in the same class
 - Called using dot notation on an [[object]], e.g., `object.method()`
 - Can be [[public]] or private, controlling access to the method: private methods may only be called in other methods within the class
