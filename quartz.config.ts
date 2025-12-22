@@ -22,7 +22,7 @@ const config: QuartzConfig = {
       cdnCaching: true,
       typography: {
         title: "Source Code Pro",
-        header: "Source Sans Pro",
+        header: "Schibsted Grotesk",
         body: "Source Sans Pro",
         code: "Source Code Pro",
       },
