@@ -21,9 +21,9 @@ const config: QuartzConfig = {
       fontOrigin: "googleFonts",
       cdnCaching: true,
       typography: {
-        title: "Source Code Pro",
-        header: "Schibsted Grotesk",
-        body: "Source Sans Pro",
+        title: "Montserrat",
+        header: "Montserrat",
+        body: "Open Sans",
         code: "Source Code Pro",
       },
       colors: {
