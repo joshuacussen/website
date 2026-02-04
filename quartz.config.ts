@@ -22,8 +22,8 @@ const config: QuartzConfig = {
       cdnCaching: true,
       typography: {
         title: "Montserrat",
-        header: "Montserrat",
-        body: "Open Sans",
+        header: "Source Sans Pro",
+        body: "Source Sans Pro",
         code: "Source Code Pro",
       },
       colors: {
