@@ -13,7 +13,7 @@ const config: QuartzConfig = {
     enableSPA: true,
     enablePopovers: true,
     analytics: null,
-    locale: "en-GB",
+    locale: "en-US",
     baseUrl: "joshuacussen.com",
     ignorePatterns: ["private", "templates", ".obsidian"],
     defaultDateType: "modified",
@@ -56,6 +56,9 @@ const config: QuartzConfig = {
   },
   plugins: {
     transformers: [
+      // EDIT START 2026/02/14 to include Citations plugin
+      Plugin.Citations({ bibliographyFile: "./content/bibliography.bib", linkCitations: false}),
+      // END EDIT
       Plugin.FrontMatter(),
       Plugin.CreatedModifiedDate({
         priority: ["frontmatter", "git", "filesystem"],
