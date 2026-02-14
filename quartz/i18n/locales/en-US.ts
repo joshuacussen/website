@@ -39,10 +39,10 @@ export default {
       createdWith: "Created with",
     },
     graph: {
-      title: "Graph View",
+      title: "Graph view",
     },
     recentNotes: {
-      title: "Recent Notes",
+      title: "Recent notes",
       seeRemainingMore: ({ remaining }) => `See ${remaining} more →`,
     },
     transcludes: {
@@ -54,7 +54,7 @@ export default {
       searchBarPlaceholder: "Search for something",
     },
     tableOfContents: {
-      title: "Table of Contents",
+      title: "Table of contents",
     },
     contentMeta: {
       readingTime: ({ minutes }) => `${minutes} min read`,
@@ -66,7 +66,7 @@ export default {
       lastFewNotes: ({ count }) => `Last ${count} notes`,
     },
     error: {
-      title: "Not Found",
+      title: "Not found",
       notFound: "Either this page is private or doesn't exist.",
       home: "Return to Homepage",
     },
@@ -77,7 +77,7 @@ export default {
     },
     tagContent: {
       tag: "Tag",
-      tagIndex: "Tag Index",
+      tagIndex: "Tag index",
       itemsUnderTag: ({ count }) =>
         count === 1 ? "1 item with this tag." : `${count} items with this tag.`,
       showingFirst: ({ count }) => `Showing first ${count} tags.`,
