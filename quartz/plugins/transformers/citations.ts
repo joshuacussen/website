@@ -14,7 +14,7 @@ const defaultOptions: Options = {
   bibliographyFile: "./bibliography.bib",
   suppressBibliography: false,
   linkCitations: false,
-  csl: "apa",
+  csl: "harvard1",
 }
 
 export const Citations: QuartzTransformerPlugin<Partial<Options>> = (userOpts) => {
