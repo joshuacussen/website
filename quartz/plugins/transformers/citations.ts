@@ -40,11 +40,53 @@ export const Citations: QuartzTransformerPlugin<Partial<Options>> = (userOpts) =
       // using https://github.com/syntax-tree/unist-util-visit as they're just anochor links
       plugins.push(() => {
         return (tree, _file) => {
+          let headingAdded = false;
+
           visit(tree, "element", (node, _index, _parent) => {
-            if (node.tagName === "a" && node.properties?.href?.startsWith("#bib")) {
-              node.properties["data-no-popover"] = true
+            // EDIT: Add 'Reference list' heading before first entry and wrap entries in ul/li
+            if (!headingAdded && node.tagName === "div" && node.properties?.id === "refs" && node.properties?.className?.includes("references")) {
+              headingAdded = true;
+
+              // Create 'References list' heading
+              const headingNode = {
+                type: "element",
+                tagName: "h2",
+                children: [{ type: "text", value: "Reference list" }],
+              };
+
+              // Wrap all csl-entry divs in li elements and put them in a ul
+              const cslEntries = node.children.filter((child: any) => 
+                child.type === "element" && 
+                child.tagName === "div" && 
+                child.properties?.className?.includes("csl-entry")
+              );
+
+              const otherChildren = node.children.filter((child: any) => 
+                !(child.type === "element" && 
+                  child.tagName === "div" && 
+                  child.properties?.className?.includes("csl-entry"))
+              );
+
+              const listItems = cslEntries.map((entry: any) => ({
+                type: "element",
+                tagName: "li",
+                children: [entry],
+              }));
+
+              const ulNode = {
+                type: "element",
+                tagName: "ul",
+                children: listItems,
+              };
+
+              node.children = [headingNode, ...otherChildren, ulNode];
             }
-          })
+
+
+              if (node.tagName === "a" && node.properties?.href?.startsWith("#bib")) {
+                node.properties["data-no-popover"] = true;
+              }
+            })
         }
       })
 
