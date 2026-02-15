@@ -23,17 +23,32 @@ export const sortFn: Options["sortFn"] = (a, b) => {
     ? b.data?.frontmatter?.folderOrder as number | undefined
     : b.data?.frontmatter?.noteOrder as number | undefined
  
-  // method II: sort folders together with files, treat folders as files
-  // compare orderA and orderB, those undefined will be placed at the end
+  // If both have explicit orders, use those (this takes priority over everything)
   if (orderA !== undefined && orderB !== undefined) {
     return orderA - orderB
-  } else if (orderA !== undefined) {
-    return -1
-  } else if (orderB !== undefined) {
-    return 1
-  } else {
-    return a.displayName.localeCompare(b.displayName)
   }
+  
+  // If only one has an order, it comes first
+  if (orderA !== undefined && orderB === undefined) {
+    return -1
+  }
+  if (orderA === undefined && orderB !== undefined) {
+    return 1
+  }
+  
+  // Both have no explicit orders: sort folders before files
+  if (a.isFolder && !b.isFolder) {
+    return -1
+  }
+  if (!a.isFolder && b.isFolder) {
+    return 1
+  }
+  
+  // Both same type and no orders: sort alphabetically
+  return a.displayName.localeCompare(b.displayName, undefined, {
+    numeric: true,
+    sensitivity: "base",
+  })
 }
 
 // components shared across all pages
@@ -72,7 +87,7 @@ export const defaultContentPageLayout: PageLayout = {
       mapFn,
       filterFn,
       sortFn,
-    }),
+    }), 
   ],
   right: [
     Component.Graph(),
