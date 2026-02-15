@@ -12,3 +12,26 @@
   line-height: 1.4rem;
   cursor: default;
 }
+
+.explorer li > a {
+  font-family: var(--headerFont);
+  font-size: 0.95rem;
+}
+
+// Show bullet points for pages to help distinguish them
+.explorer li:not(.folder-outer):has(> a) {
+  list-style-type: disc;
+  list-style-position: inside;
+}
+
+// Style citation references as a bulleted list
+#refs.references ul {
+  list-style-type: disc;
+  padding-left: 2em;
+}
+
+// Fix folder items listing styling
+.page-listing,
+.page-listing * {
+  font-size: 1rem !important; // Force body text size
+}
