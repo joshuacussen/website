@@ -14,7 +14,7 @@ const defaultOptions: Options = {
   bibliographyFile: "./bibliography.bib",
   suppressBibliography: false,
   linkCitations: false,
-  csl: "harvard1",
+  csl: "https://raw.githubusercontent.com/citation-style-language/styles/master/acm-sig-proceedings.csl",
 }
 
 export const Citations: QuartzTransformerPlugin<Partial<Options>> = (userOpts) => {
@@ -47,30 +47,39 @@ export const Citations: QuartzTransformerPlugin<Partial<Options>> = (userOpts) =
             if (!headingAdded && node.tagName === "div" && node.properties?.id === "refs" && node.properties?.className?.includes("references")) {
               headingAdded = true;
 
+              // Create horizontal rule
+              const hrNode = {
+                type: "element",
+                tagName: "hr",
+              };
+
               // Create 'References list' heading
               const headingNode = {
                 type: "element",
                 tagName: "h2",
-                children: [{ type: "text", value: "Reference list" }],
+                children: [{ type: "text", value: "References" }],
               };
 
               // Wrap all csl-entry divs in li elements and put them in a ul
-              const cslEntries = node.children.filter((child: any) => 
-                child.type === "element" && 
-                child.tagName === "div" && 
+              const cslEntries = node.children.filter((child: any) =>
+                child.type === "element" &&
+                child.tagName === "div" &&
                 child.properties?.className?.includes("csl-entry")
               );
 
-              const otherChildren = node.children.filter((child: any) => 
-                !(child.type === "element" && 
-                  child.tagName === "div" && 
+              const otherChildren = node.children.filter((child: any) =>
+                !(child.type === "element" &&
+                  child.tagName === "div" &&
                   child.properties?.className?.includes("csl-entry"))
               );
 
               const listItems = cslEntries.map((entry: any) => ({
                 type: "element",
                 tagName: "li",
-                children: [entry],
+                properties: {
+                  className: entry.properties?.className, // preserve csl-entry class on li
+                },
+                children: entry.children, // use the children directly, not the div itself
               }));
 
               const ulNode = {
@@ -79,14 +88,14 @@ export const Citations: QuartzTransformerPlugin<Partial<Options>> = (userOpts) =
                 children: listItems,
               };
 
-              node.children = [headingNode, ...otherChildren, ulNode];
+              node.children = [hrNode, headingNode, ...otherChildren, ulNode];
             }
 
 
-              if (node.tagName === "a" && node.properties?.href?.startsWith("#bib")) {
-                node.properties["data-no-popover"] = true;
-              }
-            })
+            if (node.tagName === "a" && node.properties?.href?.startsWith("#bib")) {
+              node.properties["data-no-popover"] = true;
+            }
+          })
         }
       })
 
