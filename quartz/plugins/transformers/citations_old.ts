@@ -14,7 +14,7 @@ const defaultOptions: Options = {
   bibliographyFile: "./bibliography.bib",
   suppressBibliography: false,
   linkCitations: false,
-  csl: "harvard1",
+  csl: "https://raw.githubusercontent.com/citation-style-language/styles/master/acm-sig-proceedings.csl",
 }
 
 export const Citations: QuartzTransformerPlugin<Partial<Options>> = (userOpts) => {
@@ -51,7 +51,7 @@ export const Citations: QuartzTransformerPlugin<Partial<Options>> = (userOpts) =
               const headingNode = {
                 type: "element",
                 tagName: "h2",
-                children: [{ type: "text", value: "Reference list" }],
+                children: [{ type: "text", value: "References" }],
               };
 
               node.children.unshift(headingNode);
