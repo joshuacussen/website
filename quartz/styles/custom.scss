@@ -24,14 +24,48 @@
   list-style-position: inside;
 }
 
-// Style citation references as a bulleted list
 #refs.references ul {
-  list-style-type: disc;
-  padding-left: 2em;
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+#refs.references li {
+  display: flex;
+  gap: 0.5em;
+}
+
+#refs.references .csl-left-margin {
+  flex-shrink: 0;
+}
+
+#refs.references .csl-right-inline {
+  flex: 1;
 }
 
 // Fix folder items listing styling
 .page-listing,
 .page-listing * {
   font-size: 1rem !important; // Force body text size
+}
+
+
+a.internal {
+  padding: 0 !important;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.table-container > table > * {
+  line-height: 1.6rem;
+}
+
+th {
+  text-align: center;
+}
+
+tr {
+  border-bottom: 1px solid var(--darkgray);
 }
